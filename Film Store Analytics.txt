@@ -1,0 +1,92 @@
+-- Using multiple JOINs and aggregate functions to find useful analytical data for this store's owner.
+
+/*The store owner wants to come by each of the stores in person and meet the managers. 
+Find the managers’ names at each store, with the full address of each store */
+SELECT 
+	staff.first_name AS manager_first_name, 
+    staff.last_name AS manager_last_name,
+    address.address, 
+    address.district, 
+    city.city, 
+    country.country
+FROM store
+	LEFT JOIN staff ON store.manager_staff_id = staff.staff_id
+    LEFT JOIN address ON store.address_id = address.address_id
+    LEFT JOIN city ON address.city_id = city.city_id
+    LEFT JOIN country ON city.country_id = country.country_id
+;
+
+
+/*Finding a list of item(s) that are in stock, including the store_id number, 
+the inventory_id, the name of the film, the film’s rating, its rental rate and replacement cost.*/
+SELECT 
+	inventory.store_id, 
+    inventory.inventory_id, 
+    film.title, 
+    film.rating, 
+    film.rental_rate, 
+    film.replacement_cost
+FROM inventory
+	LEFT JOIN film
+		ON inventory.film_id = film.film_id
+;
+
+/*From the previous query, roll up data using GROUP BY and COUNT function to find how many inventory items (group by rating) at each store*/
+SELECT 
+	inventory.store_id, 
+    film.rating, 
+    COUNT(inventory_id) AS inventory_items
+FROM inventory
+	LEFT JOIN film
+		ON inventory.film_id = film.film_id
+GROUP BY film.rating, inventory.store_id;
+;
+
+/*Find each category of film's average replacement cost and total replacement cost. 
+This will allow us to see what would happen if the category became unpopular within the stores.*/
+SELECT
+    inventory.store_id,
+    category.name,
+    count(inventory.inventory_id) AS films,
+    AVG(film.replacement_cost) as average_replacement_cost,
+    SUM(film.replacement_cost) as total_replacement_cost
+FROM inventory
+	LEFT JOIN film ON inventory.film_id = film.film_id
+    LEFT JOIN film_category ON film_category.film_id = film.film_id
+    LEFT JOIN category ON category.category_id = film_category.category_id
+GROUP BY inventory.store_id, category.name
+ORDER BY total_replacement_cost desc;
+
+SELECT 
+	staff.first_name,
+    staff.last_name,
+    address.address,
+    address.district,
+    city.city,
+    country.country
+-- can use left join
+FROM store
+	INNER JOIN staff ON staff.staff_id = store.manager_staff_id
+    INNER JOIN address ON staff.address_id = address.address_id
+    INNER JOIN city ON address.city_id = city.city_id
+    INNER JOIN country ON country.country_id = city.country_id;
+
+
+-- Finding a complete list of all our customers, which stores they go to, wehter or not they're active, and their full address information.
+-- 1 being true and 0 being false
+-- we can use the WHERE function to find those who are active or not
+SELECT
+	customer.first_name,
+    customer.last_name,
+	customer.store_id,
+    customer.active,
+	address.address,
+    address.district,
+    city.city,
+    country.country
+FROM customer
+	LEFT JOIN address ON customer.address_id = address.address_id
+    LEFT JOIN city ON address.city_id = city.city_id
+    LEFT JOIN country ON country.country_id = city.country_id
+WHERE customer.active = 0;
+

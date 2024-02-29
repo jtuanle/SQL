@@ -1,0 +1,322 @@
+-- Creating LeagueOfLegends database
+CREATE DATABASE LeagueOfLegends;
+
+-- making sure that the LeagueOfLegends database is being used
+USE LeagueOfLegends;
+
+/*creating a table for league champions*/
+CREATE TABLE LoLChampions(
+	League_id int,
+	ChampionName varchar(50),
+	Title varchar(50),
+	Class_1 varchar(50),
+	Class_2 varchar(50),
+	Position_1 varchar(50),
+	Position_2 varchar(50),
+	Resource varchar(50),
+	Range_type varchar(50),
+	Adaptive_type varchar(50),
+	Difficulty varchar(50),
+	Released_date date,
+	PRIMARY KEY (League_id)
+);
+
+/*This table is for league of legends' universe and will only contain some champions depends on the regions that they're residing. The regions that are going to be chosen are Freljord, Ionia, and Shurima.
+Runeterra is league's universe.*/
+
+/*creating a table for league universe*/
+CREATE TABLE RuneterraCharacters(
+	Universe_id int,
+	Champions varchar(150),
+	Species varchar(150),
+	Species_alteration varchar(150),
+	Place_of_Origin varchar(150),
+	Occupation varchar(150),
+	Number_of_Occupations int,
+	Region varchar(150),
+	Faction varchar(150),
+	PRIMARY KEY (Universe_id)
+);
+
+-- Inserting most of the champions info
+-- The ID is determined by the names of the champion in alphabetical order
+INSERT INTO LoLChampions VALUES
+(1, 'Aatrox', 'The Darkin Blade', 'Juggernaut', NULL, 'Top', 'Middle', 'Manaless', 'Melee', 'Physical', 'Moderate', '2013-06-13'),
+(2, 'Ahri', 'The Nine-Tailed Fox', 'Burst', NULL, 'Middle', NULL, 'Mana', 'Ranged', 'Magic', 'Moderate', '2011-12-14'),
+(3, 'Akali', 'The Rogue Assassin', 'Assassin', NULL, 'Top', 'Middle', 'Energy', 'Melee', 'Physical', 'Moderate', '2010-05-11'),
+(4, 'Akshan', 'The Rogue Sentinel', 'Marksman', 'Assassin', 'Middle', NULL, 'Mana', 'Ranged', 'Physical', 'High', '2021-07-22'),
+(5, 'Alistar', 'The Minotaur',' Vanguard', NULL, 'Support', NULL, 'Mana', 'Melee', 'Magic', 'Low', '2009-02-21'),
+(6, 'Amumu', 'The Sad Mummy', 'Vanguard', NULL, 'Jungle', NULL, 'Mana', 'Melee', 'Magic', 'Low', '2009-06-26'),
+(7, 'Anivia', 'The Cryophoenix', 'Battlemage', NULL, 'Middle', NULL, 'Mana', 'Ranged', 'Magic', 'High', '2009-07-10'),
+(8, 'Annie', 'The Dark Child', 'Burst', NULL, 'Middle', NULL, 'Mana', 'Ranged', 'Magic', 'Low', '2009-02-21'),
+(9, 'Aphelios', 'The Weapon of the Faithful', 'Marksman', NULL, 'Bottom', NULL, 'Mana', 'Ranged', 'Physical', 'High', '2019-12-11'),
+(10, 'Ashe', 'The Frost Archer', 'Marksman', NULL, 'Bottom', NULL, 'Mana', 'Ranged', 'Physical', 'Low', '2009-02-21'),
+(11, 'Aurelion Sol', 'The Star Forger', 'Battlemage', NULL, 'Middle', NULL, 'Mana', 'Ranged', 'Magic', 'High', '2016-03-24'),
+(12, 'Azir', 'The Emperor of the Sands', 'Specialist', NULL, 'Middle', NULL, 'Mana', 'Ranged', 'Magic', 'High', '2014-09-16'),
+(13, 'Bard', 'The Wandering Caretaker', 'Catcher', NULL, 'Support', NULL, 'Mana', 'Ranged', 'Magic', 'High', '2015-03-12'),
+(14, 'Bel''Veth', 'The Empress of the Void', 'Skirmisher', NULL, 'Jungle', NULL, 'Manaless', 'Melee', 'Physical', 'Moderate', '2022-06-09'),
+(15, 'Blitzcrank', 'The Great Steam Golem', 'Catcher', NULL, 'Support', NULL, 'Mana', 'Melee', 'Magic', 'Moderate', '2009-09-02'),
+(16, 'Brand', 'The Burning Vengeance', 'Burst', NULL, 'Support', NULL, 'Mana', 'Ranged', 'Magic', 'Moderate', '2011-04-12'),
+(17, 'Braum', 'The Heart of the Freljord', 'Warden', NULL, 'Support', NULL, 'Mana', 'Melee', 'Magic', 'Moderate', '2014-05-12'),
+(18, 'Briar', 'The Restrained Hunger', 'Diver', NULL, 'Jungle', NULL, 'Health Costs', 'Melee', 'Physical', 'Moderate', '2023-09-14'),
+(19, 'Caitlyn', 'The Sheriff of Piltover', 'Marksman', NULL, 'Bottom', NULL, 'Mana', 'Ranged', 'Physical', 'Low', '2011-01-04'),
+(20, 'Camille', 'The Steel Shadow', 'Diver', NULL, 'Top', 'Middle', 'Mana', 'Melee', 'Physical', 'High', '2016-12-07'),
+(21, 'Cassiopeia', 'The Serpent''s Embrace', 'Battlemage', NULL, 'Middle', 'Top', 'Mana', 'Ranged', 'Magic', 'High', '2010-12-14'),
+(22, 'Cho''Gath', 'The Terror of the Void', 'Specialist', NULL, 'Top', 'Middle', 'Mana', 'Melee', 'Magic', 'Low', '2009-06-26'),
+(23, 'Corki', 'The Daring Bombardier', 'Marksman', NULL, 'Middle', NULL, 'Mana', 'Ranged', 'Physical', 'Moderate', '2009-09-19'),
+(24, 'Darius', 'The Hand of Noxus', 'Juggernaut', NULL, 'Top', NULL, 'Mana', 'Melee', 'Physical', 'Moderate', '2012-05-23'),
+(25, 'Diana', 'Scorn of the Moon', 'Assassin', 'Diver', 'Jungle', 'Middle', 'Mana', 'Melee', 'Magic', 'Low', '2012-08-07'),
+(26, 'Dr.Mundo', 'The Madman of Zaun', 'Juggernaut', NULL, 'Top', 'Jungle', 'Health Costs', 'Melee', 'Physical', 'Low', '2009-09-02'),
+(27, 'Draven', 'The Glorious Executioner', 'Marksman', NULL, 'Bottom', NULL, 'Mana', 'Ranged', 'Physical', 'Moderate', '2012-06-06'),
+(28, 'Ekko', 'The Boy Who Shattered Time', 'Assassin', NULL, 'Jungle', 'Middle', 'Mana', 'Melee', 'Magic', 'High', '2015-05-29'),
+(29, 'Elise', 'The Spider Queen', 'Diver', NULL, 'Jungle', NULL, 'Mana', 'Ranged', 'Magic', 'Moderate', '2012-10-26'),
+(30, 'Evelynn', 'Agony''s Embrace', 'Assassin', NULL, 'Jungle', NULL, 'Mana', 'Melee', 'Magic', 'Moderate', '2009-05-01'),
+(31, 'Ezreal', 'The Prodigal Explorer', 'Marksman', NULL, 'Bottom', NULL, 'Mana', 'Ranged', 'Physical', 'Low', '2010-03-16'),
+(32, 'Fiddlesticks', 'The Ancient Fear', 'Specialist', NULL, 'Jungle', 'Support', 'Mana', 'Ranged', 'Magic', 'Moderate', '2009-02-21'),
+(33, 'Fiora', 'The Grand Duelist', 'Skirmisher', NULL, 'Top', NULL, 'Mana', 'Melee', 'Physical', 'Moderate', '2012-02-29'),
+(34, 'Fizz', 'The Tidal Trickster', 'Assassin', NULL, 'Middle', NULL, 'Mana', 'Melee', 'Magic', 'Moderate', '2011-11-15'),
+(35, 'Galio', 'The Colossus', 'Warden', NULL, 'Middle', 'Support', 'Mana', 'Melee', 'Magic', 'Moderate', '2010-08-10'),
+(36, 'Gangplank', 'The Saltwater Scourge', 'Specialist', NULL, 'Top', NULL, 'Mana', 'Melee', 'Physical', 'High', '2009-08-19'),
+(37, 'Garen', 'The Might of Demacia', 'Juggernaut', NULL, 'Top', 'Middle', 'Manaless', 'Melee', 'Physical', 'Low', '2010-04-27'),
+(38, 'Gnar', 'The Missing Link', 'Specialist', NULL, 'Top', NULL, 'Rage', 'Ranged', 'Physical', 'High', '2014-08-14'),
+(39, 'Gragas', 'The Rabble Rouser', 'Vanguard', NULL, 'Jungle', NULL, 'Mana', 'Melee', 'Magic', 'Moderate', '2010-02-02'),
+(40, 'Graves', 'The Outlaw', 'Specialist', NULL, 'Jungle', NULL, 'Mana', 'Ranged', 'Physical', 'Moderate', '2011-10-19'),
+(41, 'Gwen', 'The Hallowed Seamstress', 'Skirmisher', NULL, 'Top', 'Middle', 'Mana', 'Melee', 'Magic', 'Moderate', '2021-04-15'),
+(42, 'Hecarim', 'The Shadow of War', 'Diver', NULL, 'Jungle', 'Top', 'Mana', 'Melee', 'Physical', 'Moderate', '2012-04-18'),
+(43, 'Heimerdinger', 'The Revered Inventor', 'Specialist', NULL, 'Middle', 'Top', 'Mana', 'Ranged', 'Magic', 'Moderate', '2009-10-10'),
+(44, 'Illaoi', 'The Kraken Priestess', 'Juggernaut', NULL, 'Top', NULL, 'Mana', 'Melee', 'Physical', 'Moderate', '2015-11-24'),
+(45, 'Irelia', 'The Blade Dancer', 'Diver', NULL, 'Top', 'Middle', 'Mana', 'Melee', 'Physical', 'Moderate', '2010-11-16'),
+(46, 'Ivern', 'The Green Father', 'Catcher', NULL, 'Jungle', 'Middle', 'Mana', 'Ranged', 'Magic', 'High', '2016-10-05'),
+(47, 'Janna', 'The Storm''s Fury', 'Enchanter', NULL, 'Support', NULL, 'Mana', 'Ranged', 'Magic', 'Low', '2009-09-02'),
+(48, 'Jarvan IV', 'The Exemplar of Demacia', 'Diver', NULL, 'Jungle', NULL, 'Mana', 'Melee', 'Physical', 'Low', '2011-03-01'),
+(49, 'Jax', 'Grandmaster at Arms', 'Skirmisher', NULL, 'Top', 'Jungle', 'Mana', 'Melee', 'Physical', 'Low', '2009-02-21'),
+(50, 'Jayce', 'The Defender of Tomorrow', 'Artillery', NULL, 'Top', 'Middle', 'Mana', 'Melee', 'Physical', 'Moderate', '2012-07-07'),
+(51, 'Jhin', 'The Virtuoso', 'Marksman', 'Catcher', 'Bottom', NULL, 'Mana', 'Ranged', 'Physical', 'Moderate', '2016-02-01'),
+(52, 'Jinx', 'The Loose Cannon', 'Marksman', NULL, 'Bottom', NULL, 'Mana', 'Ranged', 'Physical', 'Moderate', '2013-10-10'),
+(53, 'K''Sante', 'The Pride of Nazumah', 'Warden', 'Skirmisher', 'Top', NULL, 'Mana', 'Melee', 'Physical', 'High', '2022-11-02'),
+(54, 'Kai''se', 'Daughter of the Void', 'Marksman', NULL, 'Bottom', NULL, 'Mana', 'Ranged', 'Magic', 'Moderate', '2018-03-07'),
+(55, 'Kalista', 'The Spear of Vengeance', 'Marksman', NULL, 'Bottom', NULL, 'Mana', 'Ranged', 'Physical', 'High', '2014-11-20'),
+(56, 'Karma', 'The Enlightened One', 'Burst', 'Enchanter', 'Support', 'Top', 'Mana', 'Ranged', 'Magic', 'Low', '2011-02-01'),
+(57, 'Karthus', 'The Deathsinger', 'Battlemage', NULL, 'Jungle', NULL, 'Mana', 'Ranged', 'Magic', 'Moderate', '2009-06-12'),
+(58, 'Kassadin', 'The Void Walker', 'Assassin', NULL, 'Middle', NULL, 'Mana', 'Melee', 'Magic', 'Moderate', '2009-08-07'),
+(59, 'Katarina', 'The Sinister Blade', 'Assassin', NULL, 'Middle', NULL, 'Manaless', 'Melee', 'Magic', 'Moderate', '2009-09-19'),
+(60, 'Kayle', 'The Righteous', 'Specialist', NULL, 'Top', NULL, 'Mana', 'Melee', 'Physical', 'Moderate', '2009-02-21'),
+(61, 'Kayn', 'The Shadow Reaper', 'Skirmisher', NULL, 'Jungle', NULL, 'Mana', 'Melee', 'Physical', 'Moderate', '2017-07-12'),
+(62, 'Kennen', 'The Heart of the Tempest', 'Specialist', NULL, 'Top', NULL, 'Energy', 'Ranged', 'Magic', 'Moderate', '2010-04-08'),
+(63, 'Kha''Zix', 'The Voidreaver', 'Assassin', NULL, 'Jungle', NULL, 'Mana', 'Melee', 'Physical', 'Moderate', '2012-09-27'),
+(64, 'Kindred', 'The Eternal Hunters', 'Marksman', NULL, 'Jungle', NULL, 'Mana', 'Ranged', 'Physical', 'High', '2015-10-14'),
+(65, 'Kled & Skaarl', 'The Cantankerous Cavaliers', 'Skirmisher', NULL, 'Top', 'Jungle', 'Courage', 'Melee', 'Physical', 'Moderate', '2016-08-10'),
+(66, 'Kog''Maw', 'The Mouth of the Abyss', 'Marksman', NULL, 'Bottom', NULL, 'Mana', 'Ranged', 'Physical', 'Moderate', '2010-06-24'),
+(67, 'LeBlanc', 'The Deceiver', 'Burst', NULL, 'Middle', NULL, 'Mana', 'Ranged', 'Magic', 'Moderate', '2010-11-02'),
+(68, 'Lee Sin', 'The Blind Monk', 'Diver', NULL, 'Jungle', NULL, 'Energy', 'Melee', 'Physical', 'Moderate', '2011-04-01'),
+(69, 'Leona', 'The Radiant Dawn', 'Vanguard', NULL, 'Support', NULL, 'Mana', 'Melee', 'Physical', 'Low', '2011-07-13'),
+(70, 'Lillia', 'The Bashful Bloom', 'Skirmisher', NULL, 'Jungle', 'Middle', 'Mana', 'Melee', 'Magic', 'High', '2020-07-22'),
+(71, 'Lissandra', 'The Ice Witch', 'Burst', NULL, 'Middle', NULL, 'Mana', 'Ranged', 'Magic', 'Moderate', '2013-04-30'),
+(72, 'Lucian', 'The Purifier', 'Marksman', NULL, 'Bottom', 'Middle', 'Mana', 'Ranged', 'Physical', 'Moderate', '2013-08-22'),
+(73, 'Lulu', 'The Fae Sorceress', 'Enchanter', NULL, 'Support', NULL, 'Mana', 'Ranged', 'Magic', 'Moderate', '2012-03-20'),
+(74, 'Lux', 'The Lady of Luminosity', 'Burst', 'Artillery', 'Middle', 'Support', 'Mana', 'Ranged', 'Magic', 'Low', '2010-10-19'),
+(75, 'Malphite', 'Shard of the Monolith', 'Vanguard', NULL, 'Top', 'Support', 'Mana', 'Melee', 'Magic', 'Low', '2009-09-02'),
+(76, 'Malzahar', 'The Prophet of the Void', 'Battlemage', NULL, 'Middle', NULL, 'Mana', 'Ranged', 'Magic', 'Low', '2010-06-01'),
+(77, 'Maokai', 'The Twisted Treant', 'Vanguard', NULL, 'Top', 'Support', 'Mana', 'Melee', 'Magic', 'Low', '2011-02-16'),
+(78, 'Master Yi', 'The Wuju Bladesman', 'Skirmisher', NULL, 'Jungle', NULL, 'Mana', 'Melee', 'Physical', 'Low', '2009-02-21'),
+(79, 'Milo', 'The Gentle Flame', 'Enchanter', NULL, 'Support', NULL, 'Mana', 'Ranged', 'Magic', 'Low', '2023-03-23'),
+(80, 'Miss Fortune', 'The Bounty Hunter', 'Marksman', NULL, 'Bottom', NULL, 'Mana', 'Ranged', 'Physical', 'Low', '2010-09-08'),
+(81, 'Mordekaiser', 'The Iron Revenant', 'Juggernaut', NULL, 'Top', NULL, 'Shield', 'Melee', 'Magic', 'Moderate', '2010-02-24'),
+(82, 'Morgana', 'The Fallen', 'Catcher', NULL, 'Support', NULL, 'Mana', 'Ranged', 'Magic', 'Low', '2009-02-21'),
+(83, 'Naafiri', 'The Hound of a Hundred Bites', 'Assassin', NULL, 'Middle', NULL, 'Mana', 'Melee', 'Physical', 'Low', '2023-07-19'),
+(84, 'Nami', 'The Tidecaller', 'Enchanter', NULL, 'Support', NULL, 'Mana', 'Ranged', 'Magic', 'Moderate', '2012-12-07'),
+(85, 'Nasus', 'The Curator of the Sands', 'Juggernaut', NULL, 'Top', NULL, 'Mana', 'Melee', 'Physical', 'Low', '2009-10-01'),
+(86, 'Nautilus', 'The Titan of the Depths', 'Vanguard', NULL, 'Support', NULL, 'Mana', 'Melee', 'Magic', 'Moderate', '2012-02-14'),
+(87, 'Neeko', 'The Curious Chameleon', 'Burst', 'Catcher', 'Middle', NULL, 'Mana', 'Ranged', 'Magic', 'Low', '2018-12-05'),
+(88, 'Nidalee', 'The Bestial Huntress', 'Specialist', NULL, 'Jungle', NULL, 'Mana', 'Ranged', 'Magic', 'Moderate', '2009-12-17'),
+(89, 'Nilah', 'The Joy Unbound', 'Skirmisher', NULL, 'Bottom', NULL, 'Mana', 'Melee', 'Physical', 'High', '2022-07-13'),
+(90, 'Nocturne', 'The Eternal Nightmare', 'Assassin', NULL, 'Jungle', 'Middle', 'Mana', 'Melee', 'Physical', 'Low', '2011-03-15'),
+(91, 'Nunu', 'The Boy and His Yeti', 'Vanguard', NULL, 'Jungle', 'Middle', 'Mana', 'Melee', 'Magic', 'Low', '2009-02-21'),
+(92, 'Olaf', 'The Berserker', 'Diver', NULL, 'Jungle', 'Top', 'Mana', 'Melee', 'Physical', 'Low', '2010-06-09'),
+(93, 'Orianna', 'The Lady of Clockwork', 'Burst', NULL, 'Middle', NULL, 'Mana', 'Ranged', 'Magic', 'Moderate', '2011-06-01'),
+(94, 'Ornn', 'The Fire Below the Mountain', 'Vanguard', NULL, 'Top', NULL, 'Mana', 'Melee', 'Physical', 'Moderate', '2017-08-23'),
+(95, 'Pantheon', 'The Unbreakable Spear', 'Diver', NULL, 'Top', 'Support', 'Mana', 'Melee', 'Physical', 'Low', '2010-02-02'),
+(96, 'Poppy', 'Keeper of the Hammer', 'Warden', NULL, 'Top', 'Jungle', 'Mana', 'Melee', 'Physical', 'Moderate', '2010-01-13'),
+(97, 'Pyke', 'The Bloodharbor Ripper', 'Assassin', 'Catcher', 'Support', 'Middle', 'Mana', 'Melee', 'Physical', 'Moderate', '2018-05-31'),
+(98, 'Qiyana', 'Empress of the Elements', 'Assassin', NULL, 'Jungle', 'Middle', 'Mana', 'Melee', 'Physical', 'High', '2019-06-28'),
+(99, 'Quinn', 'Demacia''s Wings', 'Specialist', NULL, 'Top', NULL, 'Mana', 'Ranged', 'Physical', 'Moderate', '2013-03-01'),
+(100, 'Rakan', 'The Charmer', 'Catcher', NULL, 'Support', NULL, 'Mana', 'Melee', 'Magic', 'Moderate', '2017-04-19'),
+(101, 'Rammus', 'The Armordilla', 'Vanguard', NULL, 'Jungle', NULL, 'Mana', 'Melee', 'Physical', 'Low', '2009-07-10'),
+(102, 'Rek''Sai', 'The Void Burrower', 'Diver', NULL, 'Jungle', NULL, 'Rage', 'Melee', 'Physical', 'Moderate', '2014-12-11'),
+(103, 'Rell', 'The Iron Maiden', 'Vanguard', NULL, 'Support', 'Jungle', 'Mana', 'Melee', 'Magic', 'Moderate', '2020-12-10'),
+(104, 'Renata Glasc', 'The Chem-Baroness', 'Enchanter', NULL, 'Support', NULL, 'Mana', 'Ranged', 'Magic', 'Moderate', '2022-02-17'),
+(105, 'Renekton', 'The Butcher of the Sands', 'Diver', NULL, 'Top', 'Middle', 'Fury', 'Melee', 'Physical', 'Low', '2011-01-18'),
+(106, 'Rengar', 'The Pridestalker', 'Assassin', 'Diver', 'Top', 'Jungle', 'Ferocity', 'Melee', 'Physical', 'Moderate', '2012-08-21'),
+(107, 'Riven', 'The Exile', 'Skirmisher', NULL, 'Top', 'Middle', 'Manaless', ' Melee', 'Physical', 'Moderate', '2011-09-14'),
+(108, 'Rumble', 'The Mechanized Menace', 'Battlemage', NULL, 'Top', 'Middle', 'Heat', 'Melee', 'Magic', 'Moderate', '2011-04-26'),
+(109, 'Ryze', ' The Rune Mage', 'Battlemage', NULL, 'Top', 'Middle', 'Mana', 'Ranged', 'Magic', 'Moderate', '2009-02-21'),
+(110, 'Samira',' The Desert Rose', 'Marksman', NULL, 'Bottom', NULL, 'Mana', 'Ranged', 'Physical', 'Moderate', '2020-09-21'),
+(111, 'Sejuani', 'Fury of the North', 'Vanguard', NULL, 'Jungle', NULL, 'Mana', 'Melee', 'Magic', 'Moderate', '2012-01-17'),
+(112, 'Senna', 'The Redeemer', 'Marksman', 'Enchanter', 'Support', NULL, 'Mana', 'Ranged', 'Physical', 'Moderate', '2019-11-10'),
+(113, 'Seraphine', 'The Starry-Eyed Songstress', 'Burst', 'Enchanter', 'Middle', 'Support', 'Mana', 'Ranged', 'Magic', 'Low', '2020-10-29'),
+(114, 'Sett', 'The Boss', 'Juggernaut', NULL, 'Top', 'Support', 'Grit', 'Melee', 'Physical', 'Moderate', '2020-01-14'),
+(115, 'Shaco', 'The Demon Jester', 'Assassin', NULL, 'Jungle', 'Support', 'Mana', 'Melee', 'Physical', 'Moderate', '2009-10-10'),
+(116, 'Shen', 'The Eye of Twilight', 'Warden', NULL, 'Top', 'Support', 'Energy', 'Melee', 'Physical', 'Moderate', '2010-03-24'),
+(117, 'Shyvana', 'The Half-Dragon', 'Juggernaut', NULL, 'Top', 'Jungle', 'Fury', 'Melee', 'Physical', 'Low', '2011-11-01'),
+(118, 'Singed', 'The Mad Chemist', 'Specialist', NULL, 'Top', 'Middle', 'Mana', 'Melee', 'Magic', 'Moderate', '2009-04-18'),
+(119, 'Sion', 'The Undead Juggernaut', 'Vanguard', NULL, 'Top', NULL, 'Mana', 'Melee', 'Physical', 'Low', '2009-04-18'),
+(120, 'Sivir', 'The Battle Mistress', 'Marksman', NULL, 'Bottom', NULL, 'Mana', 'Ranged', 'Physical', 'Moderate', '2009-02-21'),
+(121, 'Skarner', 'The Crystal Vanguard', 'Diver', NULL, 'Top', 'Jungle', 'Mana', 'Melee', 'Physical', 'Low', '2011-08-09'),
+(122, 'Sona', 'Maven of the Strings', 'Enchanter', NULL, 'Support', NULL, 'Mana', 'Ranged', 'Magic', 'Low', '2010-09-21'),
+(123, 'Soraka', 'The Sharchild', 'Enchanter', NULL, 'Support', NULL, 'Mana', 'Ranged', 'Magic', 'Low', '2009-02-21'),
+(124, 'Swain', 'The Noxian Grand General', 'Battlemage', NULL, 'Support', 'Middle', 'Mana', 'Ranged', 'Magic', 'Moderate', '2010-10-05'),
+(125, 'Sylas', 'The Unshackled', 'Burst', 'Skirmisher', 'Middle', 'Jungle', 'Mana', 'Melee', 'Magic', 'High', '2019-01-25'),
+(126, 'Syndra', 'The Dark Sovereign', 'Burst', NULL, 'Middle', NULL, 'Mana', 'Ranged', 'Magic', 'Moderate', '2012-09-13'),
+(127, 'Tahm Kench', 'The River King', 'Warden', NULL, 'Top', 'Support', 'Mana', 'Melee', 'Magic', 'Low', '2015-07-09'),
+(128, 'Taliyah', 'The Stoneweaver', 'Battlemage', NULL, 'Jungle', 'Middle', 'Mana', 'Ranged', 'Magic', 'Moderate', '2016-05-18'),
+(129, 'Talon', 'The Blade''s Shadow', 'Assassin', NULL, 'Jungle', 'Middle', 'Mana', 'Melee', 'Magic', 'Moderate', '2011-08-24'),
+(130, 'Taric', 'The Shield of Valoran', 'Enchanter', 'Warden', 'Support', NULL, 'Mana', 'Melee', 'Physical', 'Moderate', '2009-08-19'),
+(131, 'Teemo', 'The Swift Scout', 'Specialist', NULL, 'Top', 'Middle', 'Mana', 'Ranged', 'Physical', 'Low', '2009-02-21'),
+(132, 'Thresh', 'The Chain Warden', 'Catcher', NULL, 'Support', NULL, 'Mana', 'Ranged', 'Physical', 'High', '2013-01-23'),
+(133, 'Tristana', 'The Yordle Gunner', 'Marksman', NULL, 'Middle', 'Bottom', 'Mana', 'Ranged', 'Physical', 'Low', '2009-02-21'),
+(134, 'Trundle', 'The Troll King', 'Juggernaut', NULL, 'Top', 'Jungle', 'Mana', 'Melee', 'Physical', 'Low', '2010-12-01'),
+(135, 'Tryndamere', 'The Barbarian King', 'Skirmisher', NULL, 'Top', 'Middle', 'Fury', 'Melee', 'Physical', 'Low', '2009-05-01'),
+(136, 'Twisted Fate', 'The Card Master', 'Burst', NULL, 'Middle', NULL, 'Mana', 'Ranged', 'Magic', 'Moderate', '2009-02-21'),
+(137, 'Twitch', 'The Plague Rat', 'Marksman', NULL, 'Jungle', 'Bottom', 'Mana', 'Ranged', 'Physical', 'Moderate', '2009-05-01'),
+(138, 'Udyr', 'The Spirit Walker', 'Juggernaut', NULL, 'Top', 'Jungle', 'Mana', 'Melee', 'Physical', 'Low', '2009-12-02'),
+(139, 'Urgot', 'The Dreadnought', 'Juggernaut', NULL, 'Top', NULL, 'Mana', 'Ranged', 'Physical', 'Moderate', '2010-08-24'),
+(140, 'Varus', 'The Arrow of Retribution', 'Marksman', 'Artillery', 'Bottom', NULL, 'Mana', 'Ranged', 'Physical', 'Moderate', '2012-05-08'),
+(141, 'Vayne', 'The Night Hunter', 'Marksman', 'Assassin', 'Bottom', 'Top', 'Mana', 'Ranged', 'Physical', 'Moderate', '2011-05-10'),
+(142, 'Veigar', 'The Tiny Master of Evil', 'Burst', NULL, 'Middle', 'Support', 'Mana', 'Ranged', 'Magic', 'Moderate', '2009-07-24'),
+(143, 'Vel''Koz', 'The Eye of the Void', 'Artillery', NULL, 'Support', 'Middle', 'Mana', 'Ranged', 'Magic', 'Moderate', '2014-02-27'),
+(144, 'Vex', 'The Gloomist', 'Burst', NULL, 'Middle', NULL, 'Mana', 'Ranged', 'Magic', 'Moderate', '2021-09-23'),
+(145, 'Vi', 'The Piltover Enforcer', 'Diver', NULL, 'Jungle', NULL, 'Mana', 'Melee', 'Physical', 'Low', '2012-12-19'),
+(146, 'Viego', 'The Ruined King', 'Skirmisher', NULL, 'Jungle', NULL, 'Manaless', 'Melee', 'Physical', 'High', '2021-01-21'),
+(147, 'Viktor', 'The Machine Herald', 'Battlemage', NULL, 'Middle', NULL, 'Mana', 'Ranged', 'Magic', 'High', '2011-12-29'),
+(148, 'Vladimir', 'The Crimson Reaper', 'Battlemage', NULL, 'Middle', 'Top', 'Bloodthirst', 'Ranged', 'Magic', 'Moderate', '2010-07-27'),
+(149, 'Volibear', 'The Relentless Storm', 'Juggernaut', NULL, 'Top', 'Jungle', 'Mana', 'Melee', 'Physical', 'Low', '2011-11-29'),
+(150, 'Warwick', 'The Uncaged Wrath of Zaun', 'Diver', NULL, 'Jungle', 'Top', 'Mana', 'Melee', 'Phyical', 'Low', '2009-02-21'),
+(151, 'Wukong', 'The Monkey King', 'Diver', NULL, 'Jungle', 'Top', 'Mana', 'Melee', 'Physical', 'Low', '2011-07-26'),
+(152, 'Xayah', 'The Rebel', 'Marksman', NULL, 'Bottom', NULL, 'Mana', 'Ranged', 'Physical', 'Moderate', '2017-04-19'),
+(153, 'Xerath', 'The Magus Ascendant', 'Artillery', NULL, 'Middle', 'Support', 'Mana', 'Ranged', 'Magic', 'Moderate', '2011-10-05'),
+(154, 'Xin Zhao', 'The Seneschal of Demacia', 'Diver', NULL, 'Jungle', NULL, 'Mana', 'Melee', 'Phyical', 'Low', '2010-07-13'),
+(155, 'Yasuo', 'The Unforgiven', 'Skirmisher', NULL, 'Top', 'Middle', 'Flow', 'Melee', 'Physical', 'High', '2013-12-13'),
+(156, 'Yone', 'The Unforgotten', 'Assassin', 'Skirmisher', 'Top', 'Middle', 'Manaless ', 'Melee', 'Physical', 'High', '2020-08-06'),
+(157, 'Yorick', 'Shepherd of Souls', 'Juggernaut', NULL, 'Top', NULL, 'Mana', 'Melee', 'Physical', 'Moderate', '2011-06-22'),
+(158, 'Yuumi', 'The Magical Cat', 'Enchanter', NULL, 'Support', NULL, 'Mana', 'Ranged', 'Magic', 'Low', '2019-05-14'),
+(159, 'Zac', 'The Secret Weapon', 'Vanguard', NULL, 'Jungle', 'Support', 'Health costs', 'Melee', 'Magic', 'Low', '2013-03-29'),
+(160, 'Zed', 'The Master of Shadows', 'Assassin', NULL, 'Middle', NULL, 'Energy', 'Melee', 'Physical', 'High', '2012-11-13'),
+(161, 'Zeri', 'The Spark of Zaun', 'Marksman', NULL, 'Bottom', NULL, 'Mana', 'Ranged', 'Physical', 'Moderate', '2022-01-20'),
+(162, 'Ziggs', 'The Hexplosives Expert', 'Artillery', NULL, 'Middle', 'Bottom', 'Mana', 'Ranged', 'Magic', 'Moderate', '2012-02-01'),
+(163, 'Zilean', 'The Chronokeeper', 'Specialist', NULL, 'Middle', 'Support', 'Mana', 'Ranged', 'Magic', 'Moderate', '2009-04-18'),
+(164, 'Zoe', 'The Aspect of Twilight', 'Burst', NULL, 'Middle', NULL, 'Mana', 'Ranged', 'Magic', 'High', '2017-11-21'),
+(165, 'Zyra', 'Rise of the Thorns', 'Catcher', NULL, 'Middle', 'Support', 'Mana', 'Ranged', 'Magic', 'Moderate', '2012-07-24');
+
+-- Inserting characters from runeterra 
+-- Ids will not be the same as the lolchampion
+INSERT INTO RuneterraCharacters VALUES
+(1, 'Ahri', 'Vesani', NULL, 'Ionia', 'Soul Devourer, Travelling Protector of Life', 2, 'Ionia', 'Vastaya'),
+(2, 'Akali', 'Human', NULL, 'Temple of Thanjuul, Ionia', 'Vigilante', 1, 'Ionia', 'Kinkou Order'),
+(3, 'Akshan', 'Human', NULL, 'Marwi, Shurima', 'Sentinel of Light, Rogue, Vigilante', 3, 'Shurima', 'Sentinels of Light'),
+(4, 'Amumu', 'Yordle', NULL, 'Shurima', 'Wanderer', 1, 'Shurima', NULL),
+(5, 'Ashe', 'Human', 'Iceborn', 'Vathcaer, Freljord', 'Tribal Leader', 1, 'Freljord', 'Avarosan'),
+(6, 'Anivia', 'Spirit God', NULL, 'Freljord', 'The Freljoid''s Guardian, Demi-God Spirit, Guide for the Notai Tribe', 3, 'Freljord', 'Avarosan'),
+(7, 'Azir', 'God-Warrior', NULL, 'Shurima City, Shurima', 'Shurima''s Emperor', 1, 'Shurima', NULL),
+(8, 'Braum', 'Human', 'Iceborn', 'Freljord', 'Goat Herder, Legendary Tale Hero, Protector of Life', 3, 'Freljord', 'Avarosan'),
+(9, 'Gnar', 'Yordle', NULL, 'Ramshara, Freljord', 'Hunter', 1, 'Freljord', NULL),
+(10, 'Gragas', 'Human', 'Iceborn', 'Unknown', 'Brewer, Liquor Connoisseur', 2, 'Freljord', 'Avarosan'),
+(11, 'Hwei', 'Human', 'Magical', 'Koyehn, Ionia', 'Painter, Mage', 2, 'Ionia', NULL),
+(12, 'Irelia', 'Human', 'Magical', 'Navori, Ionia', 'Ionian Guard Captain, Defender of the First Lands, Silk Dancer', 3, 'Ionia', 'Xan House'),
+(13, 'Ivern', 'Human', 'Magically Altered', 'Freljord', 'Nature Guardian, God-Willow Successor', 2, 'Ionia', NULL),
+(14, 'Jhin', 'Human', 'Magical', 'Ionia', 'Virtuoso, Artist, Assassin, Serial Killer, Calligrapher, Painter, Poet, Smith', 8, 'Ionia', NULL),
+(15, 'K''Sante', 'Human', NULL, 'Nazumah', 'Monster Hunter, Defender', 2, 'Shurima', NULL),
+(16, 'Karma', 'Human', 'Magical', 'Northern Highlands, Ionia', 'Elder, Spiritual Leader, Avatar of Ionia', 3, 'Ionia', NULL),
+(17, 'Kayn', 'Human', 'Magically Altered', 'Noxus', 'Shadow Assassin Acolyte', 1, 'Ionia', 'Shadow Order'),
+(18, 'Kennen', 'Yordle', NULL, 'Bandle City', 'Kinkou Order''s Leader', 1, 'Ionia', 'Kinkou Order'),
+(19, 'Lee Sin', 'Human', 'Magical', 'Ionia', 'Monk, Monastery', 2, 'Ionia', 'Shojin Order'),
+(20, 'Lillia', 'Fae Fawn', NULL, 'Garden of Forgetting, Navori, Ionia', 'Protector of The Dreaming Tree', 1, 'Ionia', NULL),
+(21, 'Lissandra', 'Human', 'Iceborn', 'Freljord', 'Tribal Leader, The Frozen Watchers'' Seeker', 2, 'Freljord', 'Frostguard'),
+(22, 'Master Yi', 'Human', 'Magical', 'Wuju, Ionia', 'Wuju Practitioner, Wuju Teacher', 2, 'Ionia', 'Wuju Order'),
+(23, 'Nasus', 'God-Warrior', NULL, 'Shurima City, Shurima', 'Ascended Hero, Guardian', 2, 'Shurima', NULL),
+(24, 'Nunu', 'Human', 'Magically Altered', 'Notai Tribe, Freljord', 'Adventurer, Flute Musician', 2, 'Freljord', 'Frostguard'),
+(25, 'Olaf', 'Human', 'Iceborn', 'Lokfar, Freljord', 'Warrior, Seafarer', 2, 'Freljord', 'Winter''s Claw'),
+(26, 'Ornn', 'Spirit God', NULL, 'Freljord', 'Smith, Craftsman, Guardian, Demi-God Spirit', 4, 'Freljord', NULL),
+(27, 'Rakan', 'Lhotlan', NULL, 'Lhotlan Village, Qaelin, Ionia', 'Battle-Dancer, Freedom Fighter', 2, 'Ionia', 'Vastaya'),
+(28, 'Rammus', 'Unknown', NULL, 'Unknown', 'Roamer', 1, 'Shurima', NULL),
+(29, 'Renekton', 'God-Warrior', NULL, 'Shurima City, Shurima', 'Butcher, Warrior', 2, 'Shurima', NULL),
+(30, 'Sejuani', 'Human', 'Iceborn', 'Freljord', 'Tribal Leader', 1, 'Freljord', 'Winter''s Claw'),
+(31, 'Sett', 'Human', 'Magical', 'Navori, Ionia', 'Crime Boss', 1, 'Ionia', 'Vastaya'),
+(32, 'Shen', 'Human', 'Magical', 'Temple of Thanjuul, Ionia', 'Interplanar Guardian, Primary Leader of the Kinkou Order', 2, 'Ionia', 'Kinkou Order'),
+(33, 'Sivir', 'Human', NULL, 'Shurima', 'Mercenary, Fortune hunter, Shurima''s Heiress, Princess of Shurima', 4, 'Shurima', NULL),
+(34, 'Skarner', 'Brackern', NULL, 'Kalamanda, Shurima', NULL, 0, 'Shurima', 'Brackern'),
+(35, 'Syndra', 'Human', 'Magical', 'Navori, Ionia', 'Dark Mage', 1, 'Ionia', NULL),
+(36, 'Taliyah', 'Human', 'Magical', 'Nasaaj Village, Shurima', 'Wanderer, Stone Mage', 2, 'Shurima', NULL),
+(37, 'Trundle', 'Troll', 'Iceborn', 'Freljord', 'Frost-Troll King', 1, 'Freljord', 'Frost-Trolls, Frostguard'),
+(38, 'Tryndamere', 'Human', 'Magically Altered', 'Freljord', ' Barbarian Tribal Leader, Champion of the Avarosan', 2, 'Freljord', 'Avarosan'),
+(39, 'Udyr', 'Human', 'Magical', 'Freljord', 'Shaman, Spirit Walker', 2, 'Freljord', 'Winter''s Claw'),
+(40, 'Varus', 'Darkin', 'Human', 'Shurima (Darkin) / Ionia (Human)', 'Darkin Vindicator', 1, 'Ionia', 'Darkin'),
+(41, 'Volibear', 'Spirit God', NULL, 'Freljord', 'Demi-God Spirit', 1, 'Freljord', 'Ursine'),
+(42, 'Wukong', 'Shimon', NULL, 'Shimon Village, Ionia', NULL, 0, 'Ionia', 'Vastaya, Wuju Order'),
+(43, 'Xayah', 'Lhotlan', NULL, 'Lhotlan Village, Qaelin, Ionia', 'Assassin, Freedom Fighter', 2, 'Ionia', 'Vastaya'),
+(44, 'Xerath', 'Baccai', NULL, 'Saikhal, Shurima', 'Emperor, Archmage', 2, 'Shurima', NULL),
+(45, 'Yasuo', 'Human', 'Magical', 'Navori, Ionia', 'Wanderer, Ahri''s Bodyguard, Protector of Life', 3, 'Ionia', NULL),
+(46, 'Yone', 'Human', 'Magically Altered', 'Navori, Ionia', 'Demon Hunter', 1, 'Ionia', NULL),
+(47, 'Zed', 'Human', 'Magically Altered', 'Temple of Thanjuul, Ionia', 'Shadow Order Master', 1, 'Ionia', 'Shadow Order');
+
+-- 2 new champions was recently added. Hwei and Smolder
+-- I'm going to add them one at a time
+
+-- Hwei first
+-- can't update id because the id is the primary key so im going to drop it
+ALTER TABLE leagueoflegends.lolchampions DROP PRIMARY KEY;
+SET SQL_SAFE_UPDATES = 0;
+UPDATE leagueoflegends.lolchampions SET League_id = League_id + 1 WHERE League_id >= 44;
+USE LeagueOfLegends;
+INSERT INTO LoLChampions VALUES (44, 'Hwei', 'The Visionary', 'Artillery', NULL, 'Middle', 'Support', 'Mana', 'Ranged', 'Magic', 'High', '2023-12-05');
+SET SQL_SAFE_UPDATES = 1;
+ALTER TABLE leagueoflegends.lolchampions ADD PRIMARY KEY (League_id);
+
+-- Now Smolder
+ALTER TABLE leagueoflegends.lolchampions DROP PRIMARY KEY;
+SET SQL_SAFE_UPDATES = 0;
+UPDATE leagueoflegends.lolchampions SET League_id = League_id + 1 WHERE League_id >= 124;
+USE LeagueOfLegends;
+INSERT INTO LoLChampions VALUES (124, 'Smolder', 'the Fiery Fledgling', 'Marksman', NULL, 'Middle', 'Bottom', 'Mana', 'Ranged', 'Physical', 'Moderate', '2024-01-31');
+SET SQL_SAFE_UPDATES = 1;
+ALTER TABLE leagueoflegends.lolchampions ADD PRIMARY KEY (League_id);
+
+-- Making sure that im using the right database
+USE LeagueOfLegends;
+
+-- Looking at all the columns in LoLChampions
+SELECT *
+FROM LoLChampions;
+
+-- Finding out the champions that plays mid
+SELECT ChampionName, Resource, Range_type, Difficulty
+FROM LoLChampions
+WHERE Position_1 = 'Middle' OR Position_2 = 'Middle';
+
+-- Counting the champions from previous query
+SELECT COUNT(*) AS number_of_mid_champs
+FROM LoLChampions
+WHERE Position_1 = 'Middle' OR Position_2 = 'Middle';
+
+-- Counting champion difficulty
+SELECT Difficulty, COUNT(*) AS number_of_difficulties
+FROM LoLChampions
+GROUP BY Difficulty;
+
+-- Looking at all the character in runeterracharacters
+SELECT *
+FROM runeterracharacters;
+
+-- Counting the number of species
+SELECT Species, COUNT(*) AS population
+FROM runeterracharacters
+GROUP BY Species;
+
+-- I want to do a left join with runeterracharacters and lolchampions
+SELECT *
+FROM runeterracharacters
+	LEFT JOIN LoLChampions ON LoLChampions.ChampionName = runeterracharacters.Champions;
+
+-- Looking at specific columns
+SELECT LoLChampions.ChampionName, LoLChampions.Title, runeterracharacters.Species, runeterracharacters.Region, runeterracharacters.Occupation
+FROM runeterracharacters
+	LEFT JOIN LoLChampions ON LoLChampions.ChampionName = runeterracharacters.Champions;
